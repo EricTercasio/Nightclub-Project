@@ -1,16 +1,22 @@
 package model;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable{
 	private String firstName;
 	private String lastName;
-	private String idNumber;
+	private String username;
+	private String password;
+	private int idNumber;
 	private HomeAddress homeAddress;
 	private String phoneNumber;
 
-	public Person(String firstName, String lastName, String idNumber, HomeAddress homeAddress, String phoneNumber) {
+	public Person(String firstName, String lastName,String username, String password, int idNumber, HomeAddress homeAddress, String phoneNumber) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
 		this.idNumber = idNumber;
 		this.homeAddress = homeAddress;
 		this.phoneNumber = phoneNumber;
@@ -32,13 +38,21 @@ public abstract class Person {
 		this.lastName = lastName;
 	}
 
-	public String getIdNumber() {
+	public int getIdNumber() {
 		return idNumber;
 	}
 
-	public void setIdNumber(String idNumber) {
+	public void setIdNumber(int idNumber) {
 		this.idNumber = idNumber;
 	}
+
+	public String getUsername(){return username;}
+
+	public void setUsername(String username){this.username = username;}
+
+	public String getPassword(){return password;}
+
+	public void setPassword(String password){this.password = password;}
 
 	public HomeAddress getHomeAddress() {
 		return homeAddress;
@@ -56,4 +70,16 @@ public abstract class Person {
 		this.phoneNumber = phoneNumber;
 	}
 
+	@Override
+	public String toString() {
+		return "Person{" +
+				"firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", idNumber='" + idNumber + '\'' +
+				", homeAddress=" + homeAddress +
+				", phoneNumber='" + phoneNumber + '\'' +
+				'}';
+	}
 }
