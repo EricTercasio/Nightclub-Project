@@ -6,8 +6,8 @@ package model;
 public class Customer extends Person{
     String gender;
     String interest;
-    public Customer(String firstName, String lastName, String username, String password, int idNumber, HomeAddress homeAddress, String phoneNumber, String gender, String interest) {
-        super(firstName, lastName, username, password, idNumber, homeAddress, phoneNumber);
+    public Customer(String firstName, String lastName, String username, String password, HomeAddress homeAddress, String phoneNumber, String gender, String interest) {
+        super(firstName, lastName, username, password, homeAddress, phoneNumber);
         this.gender = gender;
         this.interest = interest;
     }

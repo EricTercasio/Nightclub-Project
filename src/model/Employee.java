@@ -10,8 +10,8 @@ public class Employee extends Person implements Serializable{
     private String salary;
     private Schedule schedule;
 
-    public Employee(String firstName, String lastName, String username, String password, int idNumber, HomeAddress homeAddress, String phoneNumber,String position, String salary, Schedule schedule) {
-        super(firstName,lastName,username,password,idNumber,homeAddress,phoneNumber);
+    public Employee(String firstName, String lastName, String username, String password, HomeAddress homeAddress, String phoneNumber,String position, String salary, Schedule schedule) {
+        super(firstName,lastName,username,password,homeAddress,phoneNumber);
         this.position = position;
         this.salary = salary;
         this.schedule = schedule;

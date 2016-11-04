@@ -5,14 +5,27 @@ package model;
  */
 public class Demo {
     public static void main(String[] args){
-        Schedule s1 = new Schedule("1","1","1","1","1","1","1");
-        Manager m1 = new Manager("Eric","Tercasio","Lovage","password1234",1,new HomeAddress("54 Magnolia drive", "Rocky Point","New York","11778"),"631-512-9104","Manager","50k",s1);
-        //System.out.println(m1.toString());
-        //System.out.println(m1.getPassword());
         PeopleBag pb = new PeopleBag();
-        pb.add(m1);
-        pb.writeFile();
+        //Schedule s1 = new Schedule("1","1","1","1","1","1","1");
+        //Owner o1 = new Owner("Eric","Tercasio","Kitcatski","password1234",new HomeAddress("54 Magnolia drive", "Rocky Point","New York","11778"),"631-512-9104","","100k",s1);
+        //Manager m1 = new Manager("Dennis","Ak","TheAkinator","password",new HomeAddress("5 The road", "Rocky Point","New York","11778"),"631-222-9404","","50k",s1);
+        //pb.add(o1);
+        //pb.add(m1);
         pb = pb.loadFile();
+        System.out.println(pb.findByID("0"));
+        System.out.println(pb.findByUsername("Kitcatski"));
+        System.out.println(pb.findByID("1"));
+        System.out.println(pb.findByUsername("TheAkinator"));
+
+        //System.out.println(pb.findByID("1").getFirstName());
+        //System.out.println(pb.findByID("2").getFirstName());
+        /* How to instaceOf
+        Person o2 = pb.findByID("1");
+        if(o2 instanceof Owner) {
+            Owner o = (Owner)o2;
+            System.out.println(o.getPosition());
+        }
+        */
         pb.display();
 
     }

@@ -7,17 +7,18 @@ public abstract class Person implements Serializable{
 	private String lastName;
 	private String username;
 	private String password;
-	private int idNumber;
+	private final String idNumber;
 	private HomeAddress homeAddress;
 	private String phoneNumber;
+    private static int idInt = 0;
 
-	public Person(String firstName, String lastName,String username, String password, int idNumber, HomeAddress homeAddress, String phoneNumber) {
+	public Person(String firstName, String lastName,String username, String password, HomeAddress homeAddress, String phoneNumber) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
-		this.idNumber = idNumber;
+		idNumber = String.valueOf(idInt++);
 		this.homeAddress = homeAddress;
 		this.phoneNumber = phoneNumber;
 	}
@@ -38,12 +39,8 @@ public abstract class Person implements Serializable{
 		this.lastName = lastName;
 	}
 
-	public int getIdNumber() {
+	public String getIdNumber() {
 		return idNumber;
-	}
-
-	public void setIdNumber(int idNumber) {
-		this.idNumber = idNumber;
 	}
 
 	public String getUsername(){return username;}

@@ -5,6 +5,11 @@ import java.io.*;
 /**
  * Created by Kitcatski on 11/2/2016.
  */
+
+/** Note to self Eric
+ *  When you use a load and save method in a bag, when you make a new method within the bag you must make a new save file
+ *  or its not going to work. The save method saves the whole class, not just the array.
+ */
 public class PeopleBag implements Serializable {
     int nElms;
     Person[] people;
@@ -38,6 +43,28 @@ public class PeopleBag implements Serializable {
 
         }catch(Exception e){
             System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Person findByID(String id){
+        int i;
+        for(i = 0; i<nElms; i++){
+            if(people[i].getIdNumber().equals(id)) return people[i];
+
+        }
+        return null;
+    }
+    public Person findByUsername(String username){
+        int i;
+        for(i = 0; i<nElms; i++){
+            if(people[i].getUsername().equals(username)) return people[i];
+        }
+        return null;
+    }
+    public Person findByPassword(String password){
+        int i;
+        for(i = 0; i<nElms; i++){
+            if(people[i].getPassword().equals(password)) return people[i];
         }
         return null;
     }
