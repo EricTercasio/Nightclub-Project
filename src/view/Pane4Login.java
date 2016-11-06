@@ -16,7 +16,7 @@ import javafx.scene.text.TextFlow;
 /**
  * Created by Kitcatski on 11/2/2016.
  */
-public class Pane4Login {
+public class Pane4Login extends MainWindow{
     private GridPane loginPane;
     private HBox usernameBox;
     private HBox passwordBox;
@@ -33,6 +33,7 @@ public class Pane4Login {
     private PasswordField passwordField;
     private Button loginButton;
     private TextFlow createAccount;
+    private Hyperlink createAccountClick;
 
 
     public Pane4Login(){
@@ -64,7 +65,8 @@ public class Pane4Login {
         title.setFont(Font.font("arial",50));
         title.setFill(Color.RED);
         title.setEffect(new GaussianBlur());
-        createAccount = new TextFlow(new Text("Don't have an account?"), new Hyperlink("Click here!"));
+        createAccountClick = new Hyperlink("Click here!");
+        createAccount = new TextFlow(new Text("Don't have an account?"), createAccountClick);
         //Fields and Buttons
         usernameField = new TextField();
         passwordField = new PasswordField();
@@ -103,7 +105,8 @@ public class Pane4Login {
     public Button getLoginButton() {
         return loginButton;
     }
-    public TextFlow getCreateAccount(){
-        return createAccount;
+
+    public Hyperlink getCreateAccount(){
+        return createAccountClick;
     }
 }
