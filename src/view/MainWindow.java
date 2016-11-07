@@ -2,10 +2,7 @@ package view;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 /**
@@ -20,9 +17,9 @@ public class MainWindow extends Application{
     public void start(Stage primaryStage) throws Exception {
 
             Pane4Login pane4Login = new Pane4Login();
-            Pane4CreateAcccount pane4CreateAcccount = new Pane4CreateAcccount();
+            Pane4CreateAccount pane4CreateAccount = new Pane4CreateAccount();
             //Scene scene = new Scene(pane4Login.getLoginPane(),600,600);
-            Scene scene = new Scene(pane4CreateAcccount.getCreateAccountPane(),600,600);
+            Scene scene = new Scene(pane4CreateAccount.getCreateAccountPane(),600,600);
             primaryStage.setScene(scene);
             Hyperlink createAccountClick = pane4Login.getCreateAccount();
 

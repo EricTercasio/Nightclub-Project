@@ -1,11 +1,10 @@
 package view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -15,7 +14,7 @@ import javafx.scene.text.Text;
 /**
  * Created by Eric on 11/5/2016.
  */
-public class Pane4CreateAcccount {
+public class Pane4CreateAccount {
     private GridPane createAccountPane;
     private VBox pane;
     private HBox firstNameBox;
@@ -28,7 +27,9 @@ public class Pane4CreateAcccount {
     private HBox stateBox;
     private HBox zipBox;
     private HBox buttonBox;
+    private HBox radioButtonBox;
     private Text createAccount;
+    private ComboBox<String> stateComboBox;
     private Label firstName;
     private Label lastName;
     private Label username;
@@ -46,11 +47,13 @@ public class Pane4CreateAcccount {
     private TextField phoneNumberField;
     private TextField streetField;
     private TextField cityField;
-    private TextField stateField;
     private TextField zipField;
     private Button createButton;
     private Button previousScreen;
-    public Pane4CreateAcccount(){
+    ToggleGroup group;
+    RadioButton male;
+    RadioButton female;
+    public Pane4CreateAccount(){
         // Initialize panes
         createAccountPane = new GridPane();
         pane = new VBox();
@@ -64,6 +67,8 @@ public class Pane4CreateAcccount {
         stateBox = new HBox();
         zipBox = new HBox();
         buttonBox = new HBox();
+        radioButtonBox = new HBox();
+        group = new ToggleGroup();
         // Initialize labels
         firstName = new Label("First Name: ");
         lastName = new Label("Last Name: ");
@@ -85,11 +90,22 @@ public class Pane4CreateAcccount {
         phoneNumberField = new TextField();
         streetField = new TextField();
         cityField = new TextField();
-        stateField = new TextField();
         zipField = new TextField();
         //Initialize Buttons
         createButton = new Button("Submit");
         previousScreen = new Button("Back");
+        male = new RadioButton("Male");
+        female = new RadioButton("Female");
+        //Initialize ComboBox
+        ObservableList<String> options =
+        FXCollections.observableArrayList(
+                "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN",
+                "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV",
+                "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN",
+                "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+        );
+        stateComboBox = new ComboBox<>(options);
+        stateComboBox.setVisibleRowCount(5);
         // Put nodes in panes
         firstNameBox.getChildren().addAll(firstName,firstNameField);
         firstNameBox.setSpacing(24);
@@ -104,13 +120,17 @@ public class Pane4CreateAcccount {
         streetBox.setSpacing(49);
         cityBox.getChildren().addAll(city,cityField);
         cityBox.setSpacing(60);
-        stateBox.getChildren().addAll(state,stateField);
+        stateBox.getChildren().addAll(state,stateComboBox);
         stateBox.setSpacing(54);
         zipBox.getChildren().addAll(zip,zipField);
         zipBox.setSpacing(64);
         buttonBox.getChildren().addAll(previousScreen,createButton);
         buttonBox.setSpacing(140);
-        pane.getChildren().addAll(createAccount,firstNameBox,lastNameBox,usernameBox,passwordBox,phoneNumberBox,homeAddress,streetBox,cityBox,stateBox,zipBox,buttonBox);
+        male.setToggleGroup(group);
+        female.setToggleGroup(group);
+        radioButtonBox.getChildren().addAll(male,female);
+        radioButtonBox.setSpacing(40);
+        pane.getChildren().addAll(createAccount,firstNameBox,lastNameBox,radioButtonBox,usernameBox,passwordBox,phoneNumberBox,homeAddress,streetBox,cityBox,stateBox,zipBox,buttonBox);
         pane.setSpacing(15);
         createAccountPane.getChildren().add(pane);
         createAccountPane.setAlignment(Pos.CENTER);

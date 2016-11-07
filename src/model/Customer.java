@@ -5,11 +5,11 @@ package model;
  */
 public class Customer extends Person{
     String gender;
-    String interest;
-    public Customer(String firstName, String lastName, String username, String password, HomeAddress homeAddress, String phoneNumber, String gender, String interest) {
+    //String interest;
+    public Customer(String firstName, String lastName, String username, String password, HomeAddress homeAddress, String phoneNumber, String gender/*, String interest*/) {
         super(firstName, lastName, username, password, homeAddress, phoneNumber);
         this.gender = gender;
-        this.interest = interest;
+       // this.interest = interest;
     }
 
     public String getGender() {
@@ -20,19 +20,19 @@ public class Customer extends Person{
         this.gender = gender;
     }
 
-    public String getInterest() {
+    /*public String getInterest() {
         return interest;
     }
 
     public void setInterest(String interest) {
         this.interest = interest;
     }
-
+*/
     @Override
     public String toString() {
         return "Customer{" +
                 "gender='" + gender + '\'' +
-                ", interest='" + interest + '\'' +
+                ", interest='" + //interest + '\'' +
                 '}';
     }
 }
