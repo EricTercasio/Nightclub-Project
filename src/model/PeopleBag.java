@@ -16,7 +16,7 @@ public class PeopleBag implements Serializable {
 
     public PeopleBag() {
         nElms = 0;
-        this.people = new Person[10];
+        this.people = new Person[500];
     }
 
     public void writeFile() {

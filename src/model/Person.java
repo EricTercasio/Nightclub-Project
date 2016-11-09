@@ -12,6 +12,8 @@ public abstract class Person implements Serializable{
 	private String phoneNumber;
     private static int idInt = 0;
 
+
+
 	public Person(String firstName, String lastName,String username, String password, HomeAddress homeAddress, String phoneNumber) {
 		super();
 		this.firstName = firstName;

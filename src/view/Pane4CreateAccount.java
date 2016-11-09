@@ -4,10 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -15,6 +17,7 @@ import javafx.scene.text.Text;
  * Created by Eric on 11/5/2016.
  */
 public class Pane4CreateAccount {
+    private Scene scene;
     private GridPane createAccountPane;
     private VBox pane;
     private HBox firstNameBox;
@@ -82,7 +85,8 @@ public class Pane4CreateAccount {
         zip = new Label("Zip: ");
         // Initialize TextFields
         createAccount = new Text("Create New Account");
-        createAccount.setFont(Font.font("arial",30));
+        createAccount.setFill(Color.WHITE);
+        createAccount.setFont(Font.font("Century Gothic",30));
         firstNameField = new TextField();
         lastNameField = new TextField();
         usernameField = new TextField();
@@ -134,9 +138,68 @@ public class Pane4CreateAccount {
         pane.setSpacing(15);
         createAccountPane.getChildren().add(pane);
         createAccountPane.setAlignment(Pos.CENTER);
+        createAccountPane.setStyle("-fx-background: #AFCEC4");
+        //put pane in scene
+        scene = new Scene(createAccountPane,600,600);
 
     }
+    public Scene getScene(){return scene;}
     public GridPane getCreateAccountPane(){
         return createAccountPane;
     }
+
+    public ComboBox<String> getStateComboBox() {
+        return stateComboBox;
+    }
+
+    public TextField getFirstNameField() {
+        return firstNameField;
+    }
+
+    public TextField getLastNameField() {
+        return lastNameField;
+    }
+
+    public TextField getUsernameField() {
+        return usernameField;
+    }
+
+    public PasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public TextField getPhoneNumberField() {
+        return phoneNumberField;
+    }
+
+    public TextField getStreetField() {
+        return streetField;
+    }
+
+    public TextField getCityField() {
+        return cityField;
+    }
+
+    public TextField getZipField() {
+        return zipField;
+    }
+
+    public Button getCreateButton() {
+        return createButton;
+    }
+
+    public Button getPreviousScreen() {
+        return previousScreen;
+    }
+
+    public ToggleGroup getGroup() {
+        return group;
+    }
+    public RadioButton getMale(){
+        return male;
+    }
+    public RadioButton getFemale(){
+        return  female;
+    }
+
 }

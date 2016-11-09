@@ -2,21 +2,28 @@ package view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 
+
+import static javafx.scene.paint.Color.RED;
+
+
 /**
  * Created by Kitcatski on 11/2/2016.
  */
-public class Pane4Login extends MainWindow{
+public class Pane4Login {
+    private Scene scene;
     private GridPane loginPane;
     private HBox usernameBox;
     private HBox passwordBox;
@@ -58,19 +65,22 @@ public class Pane4Login extends MainWindow{
         pane = new VBox();
         //Labels and Text
         login = new Text("Log In");
-        login.setFont(Font.font("arial",30));
+        login.setFont(Font.font("Century Gothic",30));
+        login.setFill(Color.WHITE);
         username = new Label("Username: ");
         password = new Label("Password: ");
         title = new Text("FirePaw");
         title.setFont(Font.font("arial",50));
-        title.setFill(Color.RED);
+        title.setFill(RED);
         title.setEffect(new GaussianBlur());
         createAccountClick = new Hyperlink("Click here!");
         createAccount = new TextFlow(new Text("Don't have an account?"), createAccountClick);
         //Fields and Buttons
         usernameField = new TextField();
+        usernameField.setStyle("-fx-background: #AFCEC4");
         passwordField = new PasswordField();
         loginButton = new Button("Submit");
+        loginButton.defaultButtonProperty().bind(loginButton.focusedProperty());
         //Adding nodes to box's
         textBox.getChildren().add(login);
         buttonBox.getChildren().add(loginButton);
@@ -83,9 +93,17 @@ public class Pane4Login extends MainWindow{
         //Add pane to the gridPane
         loginPane.getChildren().add(pane);
         loginPane.setAlignment(Pos.CENTER);
+        loginPane.setStyle("-fx-background: #AFCEC4;");
+        //Add pane to scene
+        scene = new Scene(loginPane,600,600);
+
+
+
 
     }
-
+    public Scene getScene(){
+        return scene;
+    }
     public GridPane getLoginPane() {
         return loginPane;
     }
