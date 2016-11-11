@@ -34,6 +34,7 @@ public class LoginController {
 
             else if(p1.getPassword().equals(pane4Login.getPassword()) && p1 instanceof Owner) {
                 stage.setScene(pane4Owner.getScene());
+
             }
             else if(p1.getPassword().equals(pane4Login.getPassword()) && p1 instanceof Manager){
                 stage.setScene(pane4Manager.getScene());

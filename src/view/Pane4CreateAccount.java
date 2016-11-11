@@ -147,7 +147,7 @@ public class Pane4CreateAccount {
     public GridPane getCreateAccountPane(){
         return createAccountPane;
     }
-
+    public VBox getPane (){return pane;}
     public ComboBox<String> getStateComboBox() {
         return stateComboBox;
     }
