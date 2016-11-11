@@ -24,6 +24,7 @@ public class PeopleBag implements Serializable {
             FileOutputStream fos = new FileOutputStream("out.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(this);
+            oos.writeInt(Person.getIdInt());
             oos.flush();
 
         } catch (Exception e) {
@@ -39,7 +40,10 @@ public class PeopleBag implements Serializable {
         try {
             FileInputStream fis = new FileInputStream("out.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            return (PeopleBag) ois.readObject();
+            PeopleBag pb = (PeopleBag) ois.readObject();
+            Person.setIdInt(ois.readInt());
+            return pb;
+
 
         }catch(Exception e){
             System.out.println(e.getMessage());
@@ -67,6 +71,12 @@ public class PeopleBag implements Serializable {
             if(people[i].getPassword().equals(password)) return people[i];
         }
         return null;
+    }
+    public Person[] getPeople(){
+        return people;
+    }
+    public int getNElms(){
+        return nElms;
     }
     public void display(){
         for(int i=0;i<nElms;i++){

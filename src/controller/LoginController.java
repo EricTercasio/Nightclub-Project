@@ -12,7 +12,7 @@ import view.*;
  */
 public class LoginController {
 
-    public LoginController(Customer model,PeopleBag peopleBag, Pane4CreateAccount pane4CreateAccount,Pane4Customer pane4Customer, Pane4Login pane4Login, Pane4Owner pane4Owner, Pane4Manager pane4Manager, Stage stage) {
+    public LoginController(PeopleBag peopleBag, Pane4CreateAccount pane4CreateAccount,Pane4Customer pane4Customer, Pane4Login pane4Login, Pane4Owner pane4Owner, Pane4Manager pane4Manager, Stage stage) {
 
         pane4Login.getCreateAccount().setOnAction(e ->{
             stage.setScene(pane4CreateAccount.getScene());

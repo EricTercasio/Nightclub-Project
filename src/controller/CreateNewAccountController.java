@@ -12,8 +12,8 @@ import view.*;
  * Created by Kitcatski on 11/7/2016.
  */
 public class CreateNewAccountController{
-    public CreateNewAccountController(Customer customer, Pane4CreateAccount pane4CreateAccount, Pane4Login pane4Login, Stage stage, PeopleBag peopleBag ){
-
+    public CreateNewAccountController( Pane4CreateAccount pane4CreateAccount, Pane4Login pane4Login, Stage stage, PeopleBag peopleBag ){
+        Customer customer = new Customer(null,null,null,null,null,null,null);
         pane4CreateAccount.getCreateButton().setOnAction(e -> {
             RadioButton check = (RadioButton)pane4CreateAccount.getGroup().getSelectedToggle();
             String toggleSelected = check.getText();
