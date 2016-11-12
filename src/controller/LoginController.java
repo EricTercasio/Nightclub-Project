@@ -20,28 +20,34 @@ public class LoginController {
         });
         pane4Login.getLoginButton().setOnAction(e ->{
 
-            Person p1 = peopleBag.findByUsername(pane4Login.getUsername());
+            Person p1 = peopleBag.findByUsername(pane4Login.getUsername().getText());
             if(p1 == null){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Incorrect Username/Password");
                 alert.showAndWait();
             }
-            else if(!pane4Login.getUsername().equals(p1.getUsername())){
+            else if(!pane4Login.getUsername().getText().equals(p1.getUsername())){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Incorrect Username/Password");
                 alert.showAndWait();
             }
 
-            else if(p1.getPassword().equals(pane4Login.getPassword()) && p1 instanceof Owner) {
+            else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Owner) {
                 stage.setScene(pane4Owner.getScene());
+                pane4Login.getUsername().clear();
+                pane4Login.getPassword().clear();
 
             }
-            else if(p1.getPassword().equals(pane4Login.getPassword()) && p1 instanceof Manager){
+            else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Manager){
                 stage.setScene(pane4Manager.getScene());
+                pane4Login.getUsername().clear();
+                pane4Login.getPassword().clear();
                 }
-            else if(p1.getPassword().equals(pane4Login.getPassword()) && p1 instanceof Customer){
+            else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Customer){
                 stage.setScene(pane4Customer.getScene());
                 pane4Customer.getCustomerName().setText(p1.getFirstName());
+                pane4Login.getUsername().clear();
+                pane4Login.getPassword().clear();
             }
 
             else {
@@ -49,6 +55,8 @@ public class LoginController {
                 alert.setContentText("Password incorrect.");
                 alert.showAndWait();
             }
+
+
         });
 
 

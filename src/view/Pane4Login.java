@@ -112,12 +112,12 @@ public class Pane4Login {
         this.loginPane = loginPane;
     }
 
-    public String getUsername() {
-        return usernameField.getText();
+    public TextField getUsername() {
+        return usernameField;
     }
 
-    public String getPassword() {
-        return passwordField.getText();
+    public TextField getPassword() {
+        return passwordField;
     }
 
     public Button getLoginButton() {

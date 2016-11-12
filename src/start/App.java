@@ -34,7 +34,7 @@ public class App extends Application {
         LoginController loginController = new LoginController(peopleBag,pane4CreateAccount,pane4Customer,pane4Login,pane4Owner,pane4Manager,primaryStage);
         CreateNewAccountController createNewAccountController = new CreateNewAccountController(pane4CreateAccount,pane4Login,primaryStage,peopleBag);
         CustomerController customerController = new CustomerController(pane4Customer);
-        ManagerController managerController = new ManagerController(pane4Manager,peopleBag);
+        ManagerController managerController = new ManagerController(pane4Manager,pane4Login,peopleBag,primaryStage);
         primaryStage.setScene(pane4Login.getScene());
 
 

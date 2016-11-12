@@ -1,10 +1,12 @@
 package view;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -27,13 +29,33 @@ public class Pane4Manager {
     private GridPane managerPane;
     private GridPane gridPane;
     private VBox createEmployeePane;
-    private HBox box;
+    private VBox titleBox;
+    private HBox buttonBox;
     private VBox employeeVBox;
+    private HBox positionBox;
+    private HBox salaryBox;
+    private HBox scheduleBox;
+    private HBox sundayToTuesdayBox;
+    private HBox wednesdayToSaturdayBox;
+    private VBox salaryScheduleBox;
+
     //Text
     private Text managerTitle;
     private Text createNewEmployee;
+    //Labels
+    private Label position;
+    private Label salary;
+    private Label schedule;
     //TextFields
-
+    private TextField positionField;
+    private TextField salaryField;
+    private TextField sundayField;
+    private TextField mondayField;
+    private TextField tuesdayField;
+    private TextField wednesdayField;
+    private TextField thursdayField;
+    private TextField fridayField;
+    private TextField saturdayField;
     //Buttons and ComboBox
     Button logOutButton;
     Button addEmployeeButton;
@@ -48,28 +70,80 @@ public class Pane4Manager {
         managerPane = new GridPane();
         gridPane = new GridPane();
         employeeVBox = new VBox();
-        box = new HBox();
+        buttonBox = new HBox();
+        titleBox = new VBox();
+        positionBox = new HBox();
+        salaryBox = new HBox();
+        scheduleBox = new HBox();
+        sundayToTuesdayBox = new HBox();
+        wednesdayToSaturdayBox = new HBox();
+        salaryScheduleBox = new VBox();
         //Initialize text
         managerTitle = new Text("Manager Window");
         managerTitle.setFont(Font.font("Century Gothic",20));
         createNewEmployee = new Text("Create new employee");
+        position = new Label("Position: ");
+        salary = new Label("Salary: ");
+        schedule = new Label("Schedule: ");
+        //Initalize TextFields
+        positionField = new TextField();
+        positionField.setPromptText("Janitor");
+        salaryField = new TextField();
+        salaryField.setPromptText("$10,000");
+        sundayField = new TextField();
+        sundayField.setPromptText("Sunday");
+        mondayField = new TextField();
+        mondayField.setPromptText("Monday");
+        tuesdayField = new TextField();
+        tuesdayField.setPromptText("Tuesday");
+        wednesdayField = new TextField();
+        wednesdayField.setPromptText("Wednesday");
+        thursdayField = new TextField();
+        thursdayField.setPromptText("Thursday");
+        fridayField = new TextField();
+        fridayField.setPromptText("Friday");
+        saturdayField = new TextField();
+        saturdayField.setPromptText("Saturday");
         //Initialize comboBox
         peopleBox = new ComboBox<>();
         //Initialize Buttons
+        logOutButton = new Button("Log out");
+        logOutButton.setAlignment(Pos.BOTTOM_RIGHT);
+        removeEmployeeButton = new Button("Remove");
+        addEmployeeButton = new Button("Add");
+        modifyEmployeeButton = new Button("Modify");
+        pane4CreateAccount.getPreviousScreen().setText("Clear");
         //Add nodes to panes
+        positionBox.getChildren().addAll(position,positionField);
+        positionBox.setSpacing(40);
+        positionBox.setAlignment(Pos.CENTER);
+        salaryBox.getChildren().addAll(salary,salaryField);
+        salaryBox.setSpacing(50);
+        salaryBox.setAlignment(Pos.CENTER);
+        scheduleBox.getChildren().add(schedule);
+        scheduleBox.setAlignment(Pos.CENTER);
+        sundayToTuesdayBox.getChildren().addAll(sundayField,mondayField,tuesdayField);
+        sundayToTuesdayBox.setAlignment(Pos.CENTER);
+        wednesdayToSaturdayBox.getChildren().addAll(wednesdayField,thursdayField,fridayField,saturdayField);
+        wednesdayToSaturdayBox.setAlignment(Pos.CENTER);
+        salaryScheduleBox.getChildren().addAll(positionBox,salaryBox,scheduleBox,sundayToTuesdayBox,wednesdayToSaturdayBox);
+        salaryScheduleBox.setSpacing(15);
+        salaryScheduleBox.setAlignment(Pos.CENTER);
+        createEmployeePane.getChildren().add(12,salaryScheduleBox);
+        buttonBox.getChildren().addAll(addEmployeeButton,modifyEmployeeButton,removeEmployeeButton);
+        buttonBox.setSpacing(15);
+        buttonBox.setAlignment(Pos.CENTER);
+        titleBox.getChildren().addAll(managerTitle,peopleBox,buttonBox);
+        titleBox.setSpacing(15);
+        titleBox.setAlignment(Pos.TOP_CENTER);
         createEmployeePane.getChildren().remove(0); // Removes "Create new Account" from pane
+        createEmployeePane.getChildren().remove(2); // Removes gender toggles from pane
         createEmployeePane.setVisible(false);
-        box.getChildren().add(managerTitle);
-        createEmployeePane.getChildren().add(0,peopleBox);
-        gridPane.getChildren().add(box);
-        gridPane.setPadding(new Insets(10,0,10,0));
-        gridPane.setAlignment(Pos.CENTER);
-        createEmployeePane.setAlignment(Pos.CENTER);
-        managerPane.getChildren().addAll(gridPane,createEmployeePane);
-        managerPane.setAlignment(Pos.CENTER);
-        //managerPane.setTop(gridPane);
-        //managerPane.setLeft(createEmployeePane);
-        scene = new Scene(managerPane,800,800);
+        employeeVBox.getChildren().addAll(titleBox,createEmployeePane,logOutButton);
+        employeeVBox.setSpacing(15);
+        managerPane.getChildren().addAll(employeeVBox);
+        managerPane.setAlignment(Pos.TOP_CENTER);
+        scene = new Scene(managerPane,800,825);
 
     }
     public Scene getScene(){
@@ -82,5 +156,62 @@ public class Pane4Manager {
 
     public Pane4CreateAccount getPane4CreateAccount(){
         return pane4CreateAccount;
+    }
+
+    public VBox getCreateEmployeePane(){
+        return createEmployeePane;
+    }
+    public TextField getPositionField(){
+        return positionField;
+    }
+    public TextField getSalaryField(){
+        return salaryField;
+    }
+    public TextField getSundayField(){
+        return sundayField;
+    }
+
+    public TextField getMondayField() {
+        return mondayField;
+    }
+
+    public TextField getTuesdayField() {
+        return tuesdayField;
+    }
+
+    public TextField getWednesdayField() {
+        return wednesdayField;
+    }
+
+    public TextField getThursdayField() {
+        return thursdayField;
+    }
+
+    public TextField getFridayField() {
+        return fridayField;
+    }
+
+    public TextField getSaturdayField() {
+        return saturdayField;
+    }
+
+    public Button getLogOutButton() {
+        return logOutButton;
+    }
+
+    public Button getAddEmployeeButton() {
+        return addEmployeeButton;
+    }
+
+    public Button getRemoveEmployeeButton() {
+        return removeEmployeeButton;
+    }
+
+    public Button getModifyEmployeeButton() {
+        return modifyEmployeeButton;
+    }
+
+    public Text getManagerTitle() {
+        return managerTitle;
     }
 }
