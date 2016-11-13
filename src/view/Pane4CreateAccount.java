@@ -98,7 +98,7 @@ public class Pane4CreateAccount {
         passwordField = new PasswordField();
         passwordField.setPromptText("Password123!");
         phoneNumberField = new TextField();
-        phoneNumberField.setPromptText("(555)823-1123");
+        phoneNumberField.setPromptText("5558231123");
         streetField = new TextField();
         streetField.setPromptText("23 LakeField Rd");
         cityField = new TextField();
