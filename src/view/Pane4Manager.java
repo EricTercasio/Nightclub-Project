@@ -12,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -29,6 +31,7 @@ public class Pane4Manager {
     private GridPane managerPane;
     private GridPane gridPane;
     private VBox createEmployeePane;
+    private HBox loggedInAsBox;
     private VBox titleBox;
     private HBox buttonBox;
     private VBox employeeVBox;
@@ -37,11 +40,17 @@ public class Pane4Manager {
     private HBox scheduleBox;
     private HBox sundayToTuesdayBox;
     private HBox wednesdayToSaturdayBox;
+    private HBox headerBox;
+    private HBox employeeTitleBox;
     private VBox salaryScheduleBox;
+
 
     //Text
     private Text managerTitle;
-    private Text createNewEmployee;
+    private Text headerText;
+    private Text loggedInAs;
+    private Text employeeText;
+
     //Labels
     private Label position;
     private Label salary;
@@ -78,13 +87,22 @@ public class Pane4Manager {
         sundayToTuesdayBox = new HBox();
         wednesdayToSaturdayBox = new HBox();
         salaryScheduleBox = new VBox();
+        headerBox = new HBox();
+        loggedInAsBox = new HBox();
+        employeeTitleBox = new HBox();
         //Initialize text
-        managerTitle = new Text("Manager Window");
-        managerTitle.setFont(Font.font("Century Gothic",20));
-        createNewEmployee = new Text("Create new employee");
+        managerTitle = new Text("|Manager Window");
+        loggedInAs = new Text();
+        loggedInAs.setFont(Font.font("Century Gothic",30));
+        loggedInAs.setFill(Color.RED);
+        managerTitle.setFont(Font.font("Century Gothic",30));
+        headerText = new Text();
         position = new Label("Position: ");
         salary = new Label("Salary: ");
         schedule = new Label("Schedule: ");
+        employeeText = new Text("Employee's");
+        employeeText.setFont(Font.font("Century Gothic", 15));
+
         //Initalize TextFields
         positionField = new TextField();
         positionField.setPromptText("Janitor");
@@ -114,6 +132,12 @@ public class Pane4Manager {
         modifyEmployeeButton = new Button("Modify");
         pane4CreateAccount.getPreviousScreen().setText("Clear");
         //Add nodes to panes
+        employeeTitleBox.getChildren().add(employeeText);
+        employeeTitleBox.setAlignment(Pos.CENTER);
+        loggedInAsBox.getChildren().addAll(loggedInAs,managerTitle);
+        loggedInAsBox.setAlignment(Pos.CENTER);
+        headerBox.getChildren().add(headerText);
+        headerBox.setAlignment(Pos.CENTER);
         positionBox.getChildren().addAll(position,positionField);
         positionBox.setSpacing(40);
         positionBox.setAlignment(Pos.CENTER);
@@ -133,17 +157,20 @@ public class Pane4Manager {
         buttonBox.getChildren().addAll(addEmployeeButton,modifyEmployeeButton,removeEmployeeButton);
         buttonBox.setSpacing(15);
         buttonBox.setAlignment(Pos.CENTER);
-        titleBox.getChildren().addAll(managerTitle,peopleBox,buttonBox);
+        titleBox.getChildren().addAll(loggedInAsBox,employeeTitleBox,peopleBox,buttonBox);
         titleBox.setSpacing(15);
+        titleBox.setPadding(new Insets(10,0,0,0));
         titleBox.setAlignment(Pos.TOP_CENTER);
         createEmployeePane.getChildren().remove(0); // Removes "Create new Account" from pane
         createEmployeePane.getChildren().remove(2); // Removes gender toggles from pane
+        createEmployeePane.getChildren().add(0,headerBox);
         createEmployeePane.setVisible(false);
         employeeVBox.getChildren().addAll(titleBox,createEmployeePane,logOutButton);
         employeeVBox.setSpacing(15);
         managerPane.getChildren().addAll(employeeVBox);
         managerPane.setAlignment(Pos.TOP_CENTER);
-        scene = new Scene(managerPane,800,825);
+        scene = new Scene(managerPane,1000,1000);
+
 
     }
     public Scene getScene(){
@@ -211,7 +238,9 @@ public class Pane4Manager {
         return modifyEmployeeButton;
     }
 
-    public Text getManagerTitle() {
-        return managerTitle;
+    public Text getLoggedInAs() {
+        return loggedInAs;
     }
+
+    public Text getHeaderText(){return headerText;}
 }

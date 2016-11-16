@@ -34,17 +34,21 @@ public class LoginController {
 
             else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Owner) {
                 stage.setScene(pane4Owner.getScene());
+                stage.centerOnScreen();
                 pane4Login.getUsername().clear();
                 pane4Login.getPassword().clear();
 
             }
             else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Manager){
                 stage.setScene(pane4Manager.getScene());
+                stage.centerOnScreen();
+                pane4Manager.getLoggedInAs().setText(p1.getFirstName());
                 pane4Login.getUsername().clear();
                 pane4Login.getPassword().clear();
                 }
             else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Customer){
                 stage.setScene(pane4Customer.getScene());
+                stage.centerOnScreen();
                 pane4Customer.getCustomerName().setText(p1.getFirstName());
                 pane4Login.getUsername().clear();
                 pane4Login.getPassword().clear();
@@ -65,4 +69,5 @@ public class LoginController {
 
 
     }
+
 }

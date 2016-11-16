@@ -23,6 +23,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.centerOnScreen();
         //MainWindow main = new MainWindow(primaryStage);
         PeopleBag peopleBag = new PeopleBag();
         peopleBag = peopleBag.loadFile();
@@ -36,6 +37,7 @@ public class App extends Application {
         CustomerController customerController = new CustomerController(pane4Customer);
         ManagerController managerController = new ManagerController(pane4Manager,pane4Login,peopleBag,primaryStage);
         primaryStage.setScene(pane4Login.getScene());
+        primaryStage.centerOnScreen();
 
 
         primaryStage.show();

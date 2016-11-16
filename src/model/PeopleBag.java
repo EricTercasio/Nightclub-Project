@@ -36,6 +36,25 @@ public class PeopleBag implements Serializable {
         people[nElms] = p;
         nElms++;
     }
+    public boolean delete(Person value) {
+        int j;
+        for (j = 0; j < nElms; j++) {
+            if (people[j] == value) {
+                break;
+            }
+        }
+
+        if (j == nElms) {
+            return false;
+        } else {
+            for (int k = j; k < nElms - 1; k++) {
+                people[k] = people[k + 1];
+
+            }
+            nElms--;
+            return true;
+        }
+    }
     public PeopleBag loadFile(){
         try {
             FileInputStream fis = new FileInputStream("out.dat");
