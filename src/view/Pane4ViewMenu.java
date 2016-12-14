@@ -94,6 +94,7 @@ public class Pane4ViewMenu {
 
         menuPane.getChildren().addAll(pane);
         menuPane.setAlignment(Pos.CENTER);
+        menuPane.setStyle("-fx-background: #AFCEC4");
 
         scene = new Scene(menuPane,600,600);
 
@@ -106,5 +107,53 @@ public class Pane4ViewMenu {
     }
     public Button getPurchaseButton(){
         return purchaseButton;
+    }
+
+    public CheckBox getCheckFood1() {
+        return checkFood1;
+    }
+
+    public CheckBox getCheckFood2() {
+        return checkFood2;
+    }
+
+    public CheckBox getCheckFood3() {
+        return checkFood3;
+    }
+
+    public CheckBox getCheckFood4() {
+        return checkFood4;
+    }
+
+    public CheckBox getCheckFood5() {
+        return checkFood5;
+    }
+
+    public CheckBox getCheckFood6() {
+        return checkFood6;
+    }
+
+    public CheckBox getCheckDrink1() {
+        return checkDrink1;
+    }
+
+    public CheckBox getCheckDrink2() {
+        return checkDrink2;
+    }
+
+    public CheckBox getCheckDrink3() {
+        return checkDrink3;
+    }
+
+    public CheckBox getCheckDrink4() {
+        return checkDrink4;
+    }
+
+    public CheckBox getCheckDrink5() {
+        return checkDrink5;
+    }
+
+    public CheckBox getCheckDrink6() {
+        return checkDrink6;
     }
 }

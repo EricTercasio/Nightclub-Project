@@ -44,7 +44,6 @@ public class TicketController {
                         pane4BuyATicket.getTicket4().setSelected(false);
                         total = abs(total - customer.getReceipt().getTicketBag().getNElms());
                         System.out.println(numOfTickets);
-                        System.out.println(total);
                         System.out.println(customer.getReceipt().getTotal());
                         successAlert(total, customer.getReceipt().getTotal());
                         peopleBag.writeFile();
