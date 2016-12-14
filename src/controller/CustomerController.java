@@ -22,7 +22,7 @@ public class CustomerController {
             stage.setScene(pane4BuyATable.getScene());
         });
         pane4Customer.getFoodButton().setOnAction(e->{
-            //stage.setScene(pane4ViewMenu.getScene());
+            stage.setScene(pane4ViewMenu.getScene());
         });
 
         pane4Customer.getReceiptButton().setOnAction(e->{

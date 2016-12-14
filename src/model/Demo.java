@@ -12,7 +12,7 @@ public class Demo {
 //        pb.add(o1);
 //        pb.add(m1);
 //        pb.writeFile();
-//
+
 ////        pb = pb.loadFile();
 ////        System.out.println(((Customer)pb.findByUsername("DennisIsFat")).getReceipt().getTotal());
 ////

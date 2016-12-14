@@ -12,7 +12,7 @@ public class TicketBag implements Serializable {
 
     public TicketBag() {
         nElms = 0;
-        this.ticket = new Ticket[4];
+        this.ticket = new Ticket[10];
     }
 
     public void add(Ticket t) {
@@ -20,6 +20,7 @@ public class TicketBag implements Serializable {
         nElms++;
 
     }
+
 
     public boolean delete(Ticket value) {
         int j;

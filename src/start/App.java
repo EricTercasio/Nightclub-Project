@@ -38,6 +38,7 @@ public class App extends Application {
         ManagerController managerController = new ManagerController(pane4Manager,pane4Login,peopleBag,primaryStage);
         TableController tableController = new TableController(pane4BuyATable, peopleBag, pane4Customer, primaryStage);
         TicketController ticketController = new TicketController(pane4BuyATicket,pane4Customer, peopleBag,primaryStage);
+        MenuController menuController = new MenuController(pane4ViewMenu,pane4Customer,primaryStage,peopleBag);
         primaryStage.setScene(pane4Login.getScene());
         primaryStage.centerOnScreen();
 
