@@ -62,7 +62,7 @@ public class CreateNewAccountController{
             }
             else {
                 //Creates the customer object using information from TextFields
-                customer = new Customer(null, null, null, null, null, null, null);
+                customer = new Customer(null, null, null, null, null, null, null,new Receipt(new FoodBag(),new TableBag(),new TicketBag(),0));
                 RadioButton check = (RadioButton) pane4CreateAccount.getGroup().getSelectedToggle();
                 String toggleSelected = check.getText();
                 customer.setFirstName(pane4CreateAccount.getFirstNameField().getText());

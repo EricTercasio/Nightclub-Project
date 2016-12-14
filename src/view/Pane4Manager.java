@@ -1,5 +1,7 @@
 package view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,7 +31,6 @@ public class Pane4Manager {
     private Scene scene;
     //Panes
     private GridPane managerPane;
-    private GridPane gridPane;
     private VBox createEmployeePane;
     private HBox loggedInAsBox;
     private VBox titleBox;
@@ -56,7 +57,6 @@ public class Pane4Manager {
     private Label salary;
     private Label schedule;
     //TextFields
-    private TextField positionField;
     private TextField salaryField;
     private TextField sundayField;
     private TextField mondayField;
@@ -66,18 +66,18 @@ public class Pane4Manager {
     private TextField fridayField;
     private TextField saturdayField;
     //Buttons and ComboBox
-    Button logOutButton;
-    Button addEmployeeButton;
-    Button removeEmployeeButton;
-    Button modifyEmployeeButton;
+    private Button logOutButton;
+    private Button addEmployeeButton;
+    private Button removeEmployeeButton;
+    private Button modifyEmployeeButton;
     private ComboBox<String> peopleBox;
+    private ComboBox<String> positionDropBox;
 
     public Pane4Manager(){
         //Initialize Panes
         pane4CreateAccount = new Pane4CreateAccount(); //Used to get create account pane so i dont have to rewrite all of the nodes
         createEmployeePane = pane4CreateAccount.getPane(); //Which is put into createEmployeePane
         managerPane = new GridPane();
-        gridPane = new GridPane();
         employeeVBox = new VBox();
         buttonBox = new HBox();
         titleBox = new VBox();
@@ -104,8 +104,6 @@ public class Pane4Manager {
         employeeText.setFont(Font.font("Century Gothic", 15));
 
         //Initalize TextFields
-        positionField = new TextField();
-        positionField.setPromptText("Janitor");
         salaryField = new TextField();
         salaryField.setPromptText("$10,000");
         sundayField = new TextField();
@@ -124,6 +122,11 @@ public class Pane4Manager {
         saturdayField.setPromptText("Saturday");
         //Initialize comboBox
         peopleBox = new ComboBox<>();
+        ObservableList<String> options =
+                FXCollections.observableArrayList(
+                        "Bartender", "Janitor", "Bouncer", "Chef","Waiter","Promoter"
+                );
+        positionDropBox = new ComboBox<>(options);
         //Initialize Buttons
         logOutButton = new Button("Log out");
         logOutButton.setAlignment(Pos.BOTTOM_RIGHT);
@@ -138,8 +141,8 @@ public class Pane4Manager {
         loggedInAsBox.setAlignment(Pos.CENTER);
         headerBox.getChildren().add(headerText);
         headerBox.setAlignment(Pos.CENTER);
-        positionBox.getChildren().addAll(position,positionField);
-        positionBox.setSpacing(40);
+        positionBox.getChildren().addAll(position,positionDropBox);
+        positionBox.setSpacing(110);
         positionBox.setAlignment(Pos.CENTER);
         salaryBox.getChildren().addAll(salary,salaryField);
         salaryBox.setSpacing(50);
@@ -169,6 +172,7 @@ public class Pane4Manager {
         employeeVBox.setSpacing(15);
         managerPane.getChildren().addAll(employeeVBox);
         managerPane.setAlignment(Pos.TOP_CENTER);
+        managerPane.setStyle("-fx-background: #AFCEC4;");
         scene = new Scene(managerPane,1000,1000);
 
 
@@ -188,12 +192,11 @@ public class Pane4Manager {
     public VBox getCreateEmployeePane(){
         return createEmployeePane;
     }
-    public TextField getPositionField(){
-        return positionField;
-    }
+
     public TextField getSalaryField(){
         return salaryField;
     }
+
     public TextField getSundayField(){
         return sundayField;
     }
@@ -243,4 +246,6 @@ public class Pane4Manager {
     }
 
     public Text getHeaderText(){return headerText;}
+
+    public ComboBox<String> getPositionDropMenu(){return positionDropBox;}
 }

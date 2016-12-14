@@ -2,6 +2,7 @@ package controller;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.*;
@@ -40,16 +41,19 @@ public class LoginController {
 
             }
             else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Manager){
+                stage.close();
                 stage.setScene(pane4Manager.getScene());
                 stage.centerOnScreen();
+                stage.show();
                 pane4Manager.getLoggedInAs().setText(p1.getFirstName());
                 pane4Login.getUsername().clear();
                 pane4Login.getPassword().clear();
                 }
             else if(p1.getPassword().equals(pane4Login.getPassword().getText()) && p1 instanceof Customer){
+
                 stage.setScene(pane4Customer.getScene());
                 stage.centerOnScreen();
-                pane4Customer.getCustomerName().setText(p1.getFirstName());
+                pane4Customer.getCustomerName().setText(p1.getFirstName() + " | " +  p1.getUsername());
                 pane4Login.getUsername().clear();
                 pane4Login.getPassword().clear();
             }

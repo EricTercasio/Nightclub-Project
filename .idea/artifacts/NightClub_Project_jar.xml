@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="NightClub Project:jar">
-    <output-path>$PROJECT_DIR$/classes/artifacts/NightClub_Project_jar</output-path>
-    <root id="archive" name="NightClub Project.jar">
-      <element id="module-output" name="NightClub Project" />
-    </root>
-  </artifact>
-</component>

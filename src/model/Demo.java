@@ -12,9 +12,17 @@ public class Demo {
 //        pb.add(o1);
 //        pb.add(m1);
 //        pb.writeFile();
-        //pb = pb.loadFile();
-        pb.display();
-        //pb.writeFile();
+//
+////        pb = pb.loadFile();
+////        System.out.println(((Customer)pb.findByUsername("DennisIsFat")).getReceipt().getTotal());
+////
+
+
+//
+//        pb.display();
+
+
+
         //Customer customer = new Customer("1","2","3","3",new HomeAddress("1","2","2","3"),"2","2");
         //System.out.println(customer.getIdNumber());
 

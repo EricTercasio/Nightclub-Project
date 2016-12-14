@@ -28,6 +28,7 @@ public class ManagerController {
        pane4Manager.getAddEmployeeButton().setOnAction(e->{
            pane4Manager.getCreateEmployeePane().setVisible(true);
            pane4Manager.getHeaderText().setText("Adding new Employee");
+           pane4Manager.getPane4CreateAccount().getCreateButton().setText("Submit");
            clearOutSelections(pane4Manager);
            pane4Manager.getPane4CreateAccount().getFirstNameField().setEditable(true);
            pane4Manager.getPane4CreateAccount().getLastNameField().setEditable(true);
@@ -46,7 +47,7 @@ public class ManagerController {
                    ,pane4Manager.getPane4CreateAccount().getStateComboBox().getSelectionModel().getSelectedItem()
                    ,pane4Manager.getPane4CreateAccount().getZipField().getText()));
            employee.setPhoneNumber(pane4Manager.getPane4CreateAccount().getPhoneNumberField().getText());
-           employee.setPosition(pane4Manager.getPositionField().getText());
+           employee.setPosition(pane4Manager.getPositionDropMenu().getSelectionModel().getSelectedItem());
            employee.setSalary(pane4Manager.getSalaryField().getText());
            employee.setSchedule(new Schedule(pane4Manager.getSundayField().getText(),pane4Manager.getMondayField().getText()
                    ,pane4Manager.getTuesdayField().getText(),pane4Manager.getWednesdayField().getText(),pane4Manager.getThursdayField().getText()
@@ -88,7 +89,7 @@ public class ManagerController {
             else {
 
                 pane4Manager.getCreateEmployeePane().setVisible(true);
-                pane4Manager.getPane4CreateAccount().getCreateButton().setText("Modify");
+                pane4Manager.getPane4CreateAccount().getCreateButton().setText("Accept Changes");
                 String id = box.getSelectionModel().getSelectedItem();
                 String[] parts = id.split("ID:");
                 String foundAccount = parts[1].trim();
@@ -109,7 +110,7 @@ public class ManagerController {
                 pane4Manager.getPane4CreateAccount().getStateComboBox().getSelectionModel().select(peopleBag.findByID(foundAccount).getHomeAddress().getState());
                 pane4Manager.getPane4CreateAccount().getStreetField().setText(peopleBag.findByID(foundAccount).getHomeAddress().getStreet());
                 pane4Manager.getPane4CreateAccount().getZipField().setText(peopleBag.findByID(foundAccount).getHomeAddress().getZip());
-                pane4Manager.getPositionField().setText(e2.getPosition());
+                pane4Manager.getPositionDropMenu().getSelectionModel().select(((Employee) peopleBag.findByID(foundAccount)).getPosition());
                 pane4Manager.getSalaryField().setText(e2.getSalary());
                 pane4Manager.getSundayField().setText(e2.getSchedule().getSunday());
                 pane4Manager.getMondayField().setText(e2.getSchedule().getMonday());
@@ -130,7 +131,7 @@ public class ManagerController {
                             ,pane4Manager.getPane4CreateAccount().getStateComboBox().getSelectionModel().getSelectedItem()
                             ,pane4Manager.getPane4CreateAccount().getZipField().getText()));
                     e2.setPhoneNumber(pane4Manager.getPane4CreateAccount().getPhoneNumberField().getText());
-                    e2.setPosition(pane4Manager.getPositionField().getText());
+                    e2.setPosition(pane4Manager.getPositionDropMenu().getSelectionModel().getSelectedItem());
                     e2.setSalary(pane4Manager.getSalaryField().getText());
                     e2.setSchedule(new Schedule(pane4Manager.getSundayField().getText(),pane4Manager.getMondayField().getText()
                             ,pane4Manager.getTuesdayField().getText(),pane4Manager.getWednesdayField().getText(),pane4Manager.getThursdayField().getText()
@@ -145,8 +146,10 @@ public class ManagerController {
 
         pane4Manager.getLogOutButton().setOnAction(e->{
             pane4Manager.getCreateEmployeePane().setVisible(false);
+            stage.close();
             stage.setScene(pane4Login.getScene());
             stage.centerOnScreen();
+            stage.show();
         });
         pane4Manager.getPane4CreateAccount().getPreviousScreen().setOnAction(e ->{
             clearOutSelections(pane4Manager);
@@ -208,7 +211,7 @@ public class ManagerController {
         pane4Manager.getPane4CreateAccount().getZipField().clear();
         pane4Manager.getPane4CreateAccount().getPhoneNumberField().clear();
         pane4Manager.getSalaryField().clear();
-        pane4Manager.getPositionField().clear();
+        pane4Manager.getPositionDropMenu().getSelectionModel().clearSelection();
         pane4Manager.getSundayField().clear();
         pane4Manager.getMondayField().clear();
         pane4Manager.getTuesdayField().clear();
