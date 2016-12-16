@@ -1,4 +1,5 @@
 package controller;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
 import view.*;
@@ -25,9 +26,48 @@ public class CustomerController {
             stage.setScene(pane4ViewMenu.getScene());
         });
 
-        pane4Customer.getReceiptButton().setOnAction(e->{
-            //stage.setScene(pane4ViewReceipt.getScene());
-        });
+        pane4Customer.getReceiptButton().setOnAction(e-> {
+            stage.setScene(pane4ViewReceipt.getScene());
+            String name = pane4Customer.getCustomerName().getText();
+            String username = name.substring(name.indexOf("|") + 1);
+            username = username.trim();
+            Customer customer = (Customer) peopleBag.findByUsername(username);
+            for(int i = 0; i <= customer.getReceipt().getTicketBag().getTickets().length; i++) {
+                if (customer.getReceipt().getTicketBag().getTickets()[i] == null) {
+                    break;
+                } else {
+                    pane4ViewReceipt.getTicketBox().getChildren().add((i + 1), new Text(
+                            customer.getReceipt().getTicketBag().getTickets()[i].getEventName() + " $" +
+                            customer.getReceipt().getTicketBag().getTickets()[i].getCost()));
+                }
+            }
+            for(int i = 0; i <= customer.getReceipt().getTableBag().getTable().length; i++) {
+                if (customer.getReceipt().getTableBag().getTable()[i] == null) {
+                    break;
+                } else {
+                    pane4ViewReceipt.getTableBox().getChildren().add((i + 1), new Text("Table number " +
+                            String.valueOf(customer.getReceipt().getTableBag().getTable()[i].getTableNumber()) + ": " +
+                            String.valueOf(customer.getReceipt().getTableBag().getTable()[i].getSeats()) +" seats $" +
+                            String.valueOf(customer.getReceipt().getTableBag().getTable()[i].getCost())));
+                }
+            }
+            for(int i = 0; i <= customer.getReceipt().getFoodBag().getFood().length; i++) {
+                if (customer.getReceipt().getFoodBag().getFood()[i] == null) {
+                    break;
+                } else {
+                    pane4ViewReceipt.getFoodAndDrinkBox().getChildren().add((i + 1), new Text(
+                            customer.getReceipt().getFoodBag().getFood()[i].getName() + " $" +
+                            customer.getReceipt().getFoodBag().getFood()[i].getPrice()));
+                }
+            }
+            pane4ViewReceipt.getTotal().setText("Total: $"+ customer.getReceipt().getTotal());
+
+
+
+
+                });
+
+
         pane4Customer.getLogoutButton().setOnAction(e->{
             stage.close();
             stage.setScene(pane4Login.getScene());

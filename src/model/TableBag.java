@@ -51,6 +51,9 @@ public class TableBag implements Serializable{
             System.out.println(table[i]);
         }
     }
+    public Table[] getTable(){
+        return table;
+    }
 }
 
 

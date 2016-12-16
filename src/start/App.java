@@ -39,6 +39,7 @@ public class App extends Application {
         TableController tableController = new TableController(pane4BuyATable, peopleBag, pane4Customer, primaryStage);
         TicketController ticketController = new TicketController(pane4BuyATicket,pane4Customer, peopleBag,primaryStage);
         MenuController menuController = new MenuController(pane4ViewMenu,pane4Customer,primaryStage,peopleBag);
+        ReceiptController receiptController = new ReceiptController(pane4ViewReceipt,pane4Customer,peopleBag,primaryStage);
         primaryStage.setScene(pane4Login.getScene());
         primaryStage.centerOnScreen();
 

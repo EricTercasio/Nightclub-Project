@@ -55,5 +55,8 @@ public class FoodBag implements Serializable {
             System.out.println(food[i]);
         }
 }
+    public Food[] getFood(){
+        return food;
+    }
 
 }

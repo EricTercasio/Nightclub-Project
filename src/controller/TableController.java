@@ -3,12 +3,14 @@ package controller;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Customer;
 import model.PeopleBag;
 import model.Table;
 import view.Pane4BuyATable;
 import view.Pane4Customer;
+import view.Pane4ViewReceipt;
 
 
 /**

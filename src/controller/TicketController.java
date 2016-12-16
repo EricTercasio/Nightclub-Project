@@ -1,12 +1,14 @@
 package controller;
 
 import javafx.scene.control.Alert;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Customer;
 import model.PeopleBag;
 import model.Ticket;
 import view.Pane4BuyATicket;
 import view.Pane4Customer;
+import view.Pane4ViewReceipt;
 
 import static java.lang.Math.abs;
 
@@ -14,6 +16,7 @@ import static java.lang.Math.abs;
  * Created by Kitcatski on 12/13/2016.
  */
 public class TicketController {
+
 
     public TicketController(Pane4BuyATicket pane4BuyATicket, Pane4Customer pane4Customer, PeopleBag peopleBag, Stage stage) {
 
@@ -61,10 +64,11 @@ public class TicketController {
         alert.setContentText("You have the maximum number of tickets allowed.");
         alert.showAndWait();
     }
-    public void successAlert(int numOfTickets, int total){
+
+    public void successAlert(int numOfTickets, int total) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Success!");
-        alert.setContentText(numOfTickets + " tickets have been added to your total\n" +"Your current total is $" +total);
+        alert.setContentText(numOfTickets + " tickets have been added to your total\n" + "Your current total is $" + total);
         alert.showAndWait();
     }
 
@@ -76,44 +80,45 @@ public class TicketController {
                 return;
             } else {
                 Ticket t = new Ticket("Khalid Event", 150, "12/5/16");
-                customer.getReceipt().addToTotal(t);
+                    customer.getReceipt().addToTotal(t);
+                    customer.getReceipt().getTicketBag().add(t);
+                }
 
-                customer.getReceipt().getTicketBag().add(t);
             }
-        }
-        if (pane4BuyATicket.getTicket2().isSelected()) {
-            if ((numOfTickets) + 1 >= 10) {
-                tooManyTickets();
-                return;
-            } else {
-                Ticket t = new Ticket("DJ Fox Event", 200, "12/10/16");
-                customer.getReceipt().addToTotal(t);
+            if (pane4BuyATicket.getTicket2().isSelected()) {
+                if ((numOfTickets) + 1 >= 10) {
+                    tooManyTickets();
+                    return;
+                } else {
+                    Ticket t = new Ticket("DJ Fox Event", 200, "12/10/16");
+                    customer.getReceipt().addToTotal(t);
 
-                customer.getReceipt().getTicketBag().add(t);
+                    customer.getReceipt().getTicketBag().add(t);
+                }
             }
-        }
-        if (pane4BuyATicket.getTicket3().isSelected()) {
-            if ((numOfTickets) + 1 >= 10) {
-                tooManyTickets();
-                return;
-            } else {
+            if (pane4BuyATicket.getTicket3().isSelected()) {
+                if ((numOfTickets) + 1 >= 10) {
+                    tooManyTickets();
+                    return;
+                } else {
 
-                Ticket t = new Ticket("Tupac Event", 1000, "12/11/16");
-                customer.getReceipt().addToTotal(t);
+                    Ticket t = new Ticket("Tupac Event", 1000, "12/11/16");
+                    customer.getReceipt().addToTotal(t);
 
-                customer.getReceipt().getTicketBag().add(t);
+                    customer.getReceipt().getTicketBag().add(t);
+                }
             }
-        }
-        if (pane4BuyATicket.getTicket4().isSelected()) {
-            if ((numOfTickets) + 1 >= 10) {
-                tooManyTickets();
-                return;
-            } else {
-                Ticket t = new Ticket("The Akinator Event", 5, "12/5/16");
-                customer.getReceipt().addToTotal(t);
+            if (pane4BuyATicket.getTicket4().isSelected()) {
+                if ((numOfTickets) + 1 >= 10) {
+                    tooManyTickets();
+                    return;
+                } else {
+                    Ticket t = new Ticket("The Akinator Event", 5, "12/5/16");
+                    customer.getReceipt().addToTotal(t);
 
-                customer.getReceipt().getTicketBag().add(t);
+                    customer.getReceipt().getTicketBag().add(t);
+                }
             }
         }
     }
-}
+

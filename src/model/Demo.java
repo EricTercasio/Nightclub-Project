@@ -6,12 +6,18 @@ package model;
 public class Demo {
     public static void main(String[] args){
         PeopleBag pb = new PeopleBag();
-//        Schedule s1 = new Schedule("1","1","1","1","1","1","1");
-//        Owner o1 = new Owner("Eric","Tercasio","Kitcatski","password1234",new HomeAddress("54 Magnolia drive", "Rocky Point","New York","11778"),"631-512-9104","","100k",s1);
-//        Manager m1 = new Manager("Dennis","Ak","TheAkinator","password",new HomeAddress("5 The road", "Rocky Point","New York","11778"),"631-222-9404","","50k",s1);
-//        pb.add(o1);
-//        pb.add(m1);
-//        pb.writeFile();
+        Schedule s1 = new Schedule("1","1","1","1","1","1","1");
+        Owner o1 = new Owner("Eric","Tercasio","Kitcatski","password1234",new HomeAddress("54 Magnolia drive", "Rocky Point","New York","11778"),"631-512-9104","","100k",s1);
+        Manager m1 = new Manager("Dennis","Ak","TheAkinator","password",new HomeAddress("5 The road", "Rocky Point","New York","11778"),"631-222-9404","","50k",s1);
+        pb.add(o1);
+        pb.add(m1);
+        pb.writeFile();
+//        pb = pb.loadFile();
+//        Customer c = (Customer)pb.findByUsername("shortythompsoniskuhl12");
+//        c.getReceipt().getTicketBag().display();
+//        c.getReceipt().getTableBag().display();
+//        c.getReceipt().getFoodBag().display();
+//        System.out.println(c.getReceipt().getTotal());
 
 ////        pb = pb.loadFile();
 ////        System.out.println(((Customer)pb.findByUsername("DennisIsFat")).getReceipt().getTotal());

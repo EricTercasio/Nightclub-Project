@@ -59,5 +59,8 @@ public class TicketBag implements Serializable {
             System.out.println(ticket[i]);
         }
     }
+    public Ticket[] getTickets(){
+        return ticket;
+    }
 }
 

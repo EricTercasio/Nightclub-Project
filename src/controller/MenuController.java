@@ -2,12 +2,14 @@ package controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Customer;
 import model.Food;
 import model.PeopleBag;
 import view.Pane4Customer;
 import view.Pane4ViewMenu;
+import view.Pane4ViewReceipt;
 
 import static java.lang.Math.abs;
 
@@ -41,7 +43,7 @@ public class MenuController {
                     int total = customer.getReceipt().getFoodBag().getNElms();
                     int numOfFood = customer.getReceipt().getFoodBag().getNElms();
                     System.out.println(total);
-                    checkTheBoxes(pane4ViewMenu, customer);
+                    checkTheBoxes(pane4ViewMenu,customer);
                     total = abs(total - customer.getReceipt().getFoodBag().getNElms());
                     System.out.println(total);
                     successAlert(total, customer.getReceipt().getTotal());
