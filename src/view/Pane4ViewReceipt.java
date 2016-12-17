@@ -72,7 +72,7 @@ public class Pane4ViewReceipt {
         buttonBox.setSpacing(50);
 
         pane.getChildren().addAll(headerText,ticketBox,tableBox,foodAndDrinkBox,total, buttonBox);
-        pane.setSpacing(35);
+        pane.setSpacing(15);
         pane.setAlignment(Pos.CENTER);
 
 

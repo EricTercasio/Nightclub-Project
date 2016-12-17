@@ -45,6 +45,9 @@ public class Receipt implements Serializable{
         return ticketBag;
     }
 
+    public void setTotal(int total) {
+        this.total = total;
+    }
 }
 
 

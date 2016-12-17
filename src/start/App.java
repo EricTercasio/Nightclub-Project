@@ -41,6 +41,7 @@ public class App extends Application {
         TicketController ticketController = new TicketController(pane4BuyATicket,pane4Customer, peopleBag,primaryStage);
         MenuController menuController = new MenuController(pane4ViewMenu,pane4Customer,primaryStage,peopleBag);
         ReceiptController receiptController = new ReceiptController(pane4ViewReceipt,pane4Customer,peopleBag,pane4Payment,primaryStage);
+        PaymentController paymentController = new PaymentController(pane4Payment,pane4Customer,pane4ViewReceipt,peopleBag,primaryStage);
         primaryStage.setScene(pane4Login.getScene());
         primaryStage.centerOnScreen();
 

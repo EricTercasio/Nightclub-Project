@@ -62,5 +62,10 @@ public class TicketBag implements Serializable {
     public Ticket[] getTickets(){
         return ticket;
     }
+
+    public void deleteAllTickets() {
+        ticket = new Ticket[10];
+        nElms = 0;
+    }
 }
 

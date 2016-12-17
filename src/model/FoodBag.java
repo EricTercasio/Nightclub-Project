@@ -58,5 +58,8 @@ public class FoodBag implements Serializable {
     public Food[] getFood(){
         return food;
     }
-
+    public void deleteAllFood(){
+        food = new Food[100];
+        nElms = 0;
+    }
 }

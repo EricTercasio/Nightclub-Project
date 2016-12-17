@@ -54,6 +54,11 @@ public class TableBag implements Serializable{
     public Table[] getTable(){
         return table;
     }
+
+    public void deleteAllTables() {
+        table = new Table[100];
+        nElms = 0;
+    }
 }
 
 
