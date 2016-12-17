@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import model.Customer;
 import model.PeopleBag;
 import view.Pane4Customer;
+import view.Pane4Payment;
 import view.Pane4ViewReceipt;
 
 /**
@@ -12,7 +13,7 @@ import view.Pane4ViewReceipt;
  */
 public class ReceiptController {
 
-    public ReceiptController(Pane4ViewReceipt pane4ViewReceipt, Pane4Customer pane4Customer, PeopleBag peopleBag, Stage stage) {
+    public ReceiptController(Pane4ViewReceipt pane4ViewReceipt, Pane4Customer pane4Customer, PeopleBag peopleBag, Pane4Payment pane4Payment, Stage stage) {
 
             pane4ViewReceipt.getReturnButton().setOnAction(e -> {
                 stage.setScene(pane4Customer.getScene());
@@ -21,6 +22,10 @@ public class ReceiptController {
                 pane4ViewReceipt.getFoodAndDrinkBox().getChildren().remove(1,pane4ViewReceipt.getFoodAndDrinkBox().getChildren().size());
 
             });
+        pane4ViewReceipt.getPurchaseButton().setOnAction(e->{
+            stage.setScene(pane4Payment.getScene());
+            pane4Payment.getPaymentAmount().setText(pane4ViewReceipt.getTotal().getText());
+        });
 
     }
     }

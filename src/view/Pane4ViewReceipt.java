@@ -100,4 +100,7 @@ public class Pane4ViewReceipt {
     public Button getReturnButton(){
         return returnButton;
     }
+    public Button getPurchaseButton(){
+        return purchaseButton;
+    }
 }

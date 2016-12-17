@@ -32,6 +32,7 @@ public class App extends Application {
         Pane4BuyATable pane4BuyATable = new Pane4BuyATable();
         Pane4ViewMenu pane4ViewMenu = new Pane4ViewMenu();
         Pane4ViewReceipt pane4ViewReceipt = new Pane4ViewReceipt();
+        Pane4Payment pane4Payment = new Pane4Payment();
         LoginController loginController = new LoginController(peopleBag,pane4CreateAccount,pane4Customer,pane4Login,pane4Owner,pane4Manager,primaryStage);
         CreateNewAccountController createNewAccountController = new CreateNewAccountController(pane4CreateAccount,pane4Login,primaryStage,peopleBag);
         CustomerController customerController = new CustomerController(pane4Customer,pane4Login,peopleBag,pane4BuyATicket,pane4BuyATable,pane4ViewMenu,pane4ViewReceipt,primaryStage);
@@ -39,7 +40,7 @@ public class App extends Application {
         TableController tableController = new TableController(pane4BuyATable, peopleBag, pane4Customer, primaryStage);
         TicketController ticketController = new TicketController(pane4BuyATicket,pane4Customer, peopleBag,primaryStage);
         MenuController menuController = new MenuController(pane4ViewMenu,pane4Customer,primaryStage,peopleBag);
-        ReceiptController receiptController = new ReceiptController(pane4ViewReceipt,pane4Customer,peopleBag,primaryStage);
+        ReceiptController receiptController = new ReceiptController(pane4ViewReceipt,pane4Customer,peopleBag,pane4Payment,primaryStage);
         primaryStage.setScene(pane4Login.getScene());
         primaryStage.centerOnScreen();
 
